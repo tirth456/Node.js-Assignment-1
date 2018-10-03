@@ -38,10 +38,10 @@ server.get('/sendGet', function (req, res, next) {
   // Find every entity within the given collection
   productSave.find({}, function (error, products) {
 
-    // Return all of the users in the system
+    // Return all of the product in the system
     res.send(products)
   })
-  console.log(" Request Counters -> GET: %s | POST: %s", getRequestCounter, postRequestCounter);
+  console.log(" Processed Request Count --> GET: %s | POST: %s", getRequestCounter, postRequestCounter);
 })
 // Create a new product
 server.post('/sendPost', function (req, res, next) {
@@ -50,12 +50,12 @@ server.post('/sendPost', function (req, res, next) {
   // Make sure product is defined
   if (req.params.product === undefined ) {
     // If there are any errors, pass them to next in the correct format
-    console.log(" Request Counters -> GET: %s | POST: %s", getRequestCounter, postRequestCounter);
+    console.log(" Processed Request Count --> GET: %s | POST: %s", getRequestCounter, postRequestCounter);
     return next(new restify.InvalidArgumentError('name must be supplied'))
   }
   if (req.params.price === undefined ) {
     // If there are any errors, pass them to next in the correct format
-    console.log(" Request Counters -> GET: %s | POST: %s", getRequestCounter, postRequestCounter);
+    console.log(" Processed Request Count --> GET: %s | POST: %s", getRequestCounter, postRequestCounter);
     return next(new restify.InvalidArgumentError('age must be supplied'))
   }
   var newProduct = {
@@ -63,22 +63,22 @@ server.post('/sendPost', function (req, res, next) {
 		price: req.params.price
 	}
 
-  // Create the user using the persistence engine
+  // Create the product using the persistence engine
   productSave.create( newProduct, function (error, product) {
 
     // If there are any errors, pass them to next in the correct format
     if (error) return next(new restify.InvalidArgumentError(JSON.stringify(error.errors)))
 
-    // Send the user if no issues
+    // Send the product if no issues
     res.send(201, product)
   })
-  console.log(" Request Counters -> GET: %s | POST: %s", getRequestCounter, postRequestCounter);
+  console.log(" Processed Request Count --> GET: %s | POST: %s", getRequestCounter, postRequestCounter);
 })
 
-// Delete user with the given id
+// Delete all product 
 server.del('/sendDelete', function (req, res, next) {
 
-  // Delete the user with the persistence engine
+  // Delete the product with the persistence engine
   productSave.deleteMany({}, function (error, products) {
 
     // If there are any errors, pass them to next in the correct format
