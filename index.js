@@ -90,3 +90,24 @@ server.del('/sendDelete', function (req, res, next) {
 })
 
 
+
+// GET-diagram
+
+// User->Web API: HTTP Request
+// Note right of User: sendGet
+// Web API->Data: get products
+// Data-->Web API: show all products
+// Web API-->User: HTTP Response
+// Note right of User: {product:"item",price:"price",id:"id"}
+
+
+
+
+// Post-diagram
+
+// User->Web API: HTTP Request
+// Note right of User: sendPost: \n{product:pencil, price: 5}
+// Web API->Data: Add Product
+// Data-->Web API: added product to list
+// Web API-->User: HTTP Response
+// Note right of User: {_id: "id", pencil, 5}
