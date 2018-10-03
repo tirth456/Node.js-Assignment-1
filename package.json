@@ -1,0 +1,12 @@
+{
+    "name": "Assignment-1",
+    "version": "1.0.0",
+    "description": "Crud operation with rest api",
+    "dependencies": {
+        "restify": "^4.1.1",
+        "save": "^2.3.0"
+    },
+    "author": "Tirthraj",
+    "private": true,
+    "main": "index.js"
+}
